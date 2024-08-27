@@ -1,0 +1,18 @@
+Sebelum menjadi kode ini mau pastikan untuk terlebih dahulu Tanti untuk mendownload:
+Visual Studi code = https://code.visualstudio.com/download#
+NB: Kalau pakai ini, nanti pada saat masuk ke dalam mesti download Python lagi
+
+atau
+
+Python = https://www.python.org/ftp/python/3.12.4/python-3.12.4-amd64.exe
+NB: Kalau pakai ini, tidak perlu instal lagi tinggal dibuka kodenya saja dengan python
+
+1. Untuk menjalankan kode tersebut, terlebih dahulu jalan Command Prompt
+2. Jalankan dua baris kode berikut pada Command Prompt:
+- Kode-1: python -m pip install numpy
+- Kode-2: python -m pip install opencv-python
+3. Setelah semua sudah siap, baru jalankan kodenya.
+4. Sebelum menjalankan kode program, perhatikan yang diberikan tanda pagar "#" 3 lagi.
+Contoh: ### Bagian ini disesuaikan ya
+5. Setelah itu, disesuaikan juga mau mulai dari urutan ke berapa sampai ke berapa
+6. Jika semua sudah sesuai, silahkan dijalankan kodenya.
