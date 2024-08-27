@@ -53,7 +53,7 @@ com1[0] = "sudo"
 
 image_file_arr = get_image_files(dir_name)
 
-awal = 11300
+awal = 0
 akhir = len(image_file_arr)
 
 for i in range(awal, akhir):
