@@ -1,8 +1,4 @@
-import subprocess
 import os
-import glob
-from PIL import Image
-import time
 
 def get_image_files(directory):
     image_extensions = ('.png', '.jpg', '.jpeg', '.gif', '.bmp', '.tiff')
