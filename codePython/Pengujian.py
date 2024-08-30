@@ -172,27 +172,6 @@ for i in range(jumlah_citra):
     persen = sum_noise / ttl_piksel * 100
     persen_noise_after2 += [f"{persen}%"]
 
-'''
-## Nilai awal
-name_of_image = []
-sum_of_pixel = []
-
-## Before
-check_blur_before = []
-noise_before = []
-persen_noise_before = []
-
-## After (Deblurring)
-check_blur_after1 = []
-noise_after1 = []
-persen_noise_after1 = []
-
-## After (Denosing)
-check_blur_after2 = []
-noise_after2 = []
-persen_noise_after2 = []
-'''
-
 # Memasukkan Data ke dalam Excel
 
 ## Detail awal
