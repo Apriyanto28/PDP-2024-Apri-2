@@ -2,6 +2,21 @@ import os
 import numpy as np
 import pandas as pd
 import cv2
+import time
+
+# Menyesuaikan nama waktu
+def name_of_time(tm):
+    hasil = ""
+    waktu = ["second", "minute", "hour"]
+    i = 0
+    while(tm > 0):
+        tmp = tm % 60
+        if(i >= len(waktu)):
+            break
+        hasil = f" {int(round(tmp))} {waktu[i]}" + hasil
+        i += 1
+        tm = tm // 60
+    return hasil
 
 # Mendapatkan semua nama gambar dalam 1 folder
 def get_image_files(directory):
@@ -103,16 +118,19 @@ noise_after2 = []
 persen_noise_after2 = []
 
 #Nilai awal dan akhir proses
-awal = 50
-akhir = 60
+awal = 60
+akhir = 70
 
 # Memproses citra
 for i in range(awal, akhir):
 
+    # Memulai waktu awal
+    time_start = time.time()
+
     # Mendapatkan nama citra
     image_name = os.path.basename(arr_citra_awal[i])
     name_of_image += [image_name]
-    print(f"Citra ke-{i}: {image_name}")
+    print(f"Citra ke-{i}: {image_name} ", end = "")
 
     ## Citra Awal
 
@@ -175,6 +193,15 @@ for i in range(awal, akhir):
     # Mengkonversi jumlah noise menjadi persen
     persen = sum_noise / ttl_piksel * 100
     persen_noise_after2 += [f"{persen}%"]
+    
+    # Mendapatkan waktu selesai
+    end_time = time.time()
+
+    # Menghitung lama waktu
+    lengt_process = end_time - time_start
+
+    # Mencetak waktu proses
+    print(f"Waktu proses = {name_of_time(lengt_process)}")
 
 # Memasukkan Data ke dalam Excel
 
@@ -198,5 +225,5 @@ df["Noise Denoising"] = noise_after2
 df["Persen Noise Denoising"] = persen_noise_after2
 
 # Menyimpan data ke Excel
-df.to_excel('result3.xlsx', sheet_name='Sheet1', index=False)
+df.to_excel('result4.xlsx', sheet_name='Sheet1', index=False)
 print("\nData Berhasil disimpan di Excel")
