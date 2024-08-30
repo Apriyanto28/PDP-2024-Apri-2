@@ -102,8 +102,12 @@ check_blur_after2 = []
 noise_after2 = []
 persen_noise_after2 = []
 
+#Nilai awal dan akhir proses
+awal = 0
+akhir = 10
+
 # Memproses citra
-for i in range(jumlah_citra):
+for i in range(awal, akhir):
 
     # Mendapatkan nama citra
     image_name = os.path.basename(arr_citra_awal[i])
