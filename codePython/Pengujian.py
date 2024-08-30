@@ -103,8 +103,8 @@ noise_after2 = []
 persen_noise_after2 = []
 
 #Nilai awal dan akhir proses
-awal = 0
-akhir = 10
+awal = 10
+akhir = 40
 
 # Memproses citra
 for i in range(awal, akhir):
@@ -112,7 +112,7 @@ for i in range(awal, akhir):
     # Mendapatkan nama citra
     image_name = os.path.basename(arr_citra_awal[i])
     name_of_image += [image_name]
-    print(f"Citra ke-{i+1}: {image_name}")
+    print(f"Citra ke-{i}: {image_name}")
 
     ## Citra Awal
 
