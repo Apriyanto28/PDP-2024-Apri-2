@@ -198,5 +198,5 @@ df["Noise Denoising"] = noise_after2
 df["Persen Noise Denoising"] = persen_noise_after2
 
 # Menyimpan data ke Excel
-df.to_excel('result.xlsx', sheet_name='Sheet1', index=False)
+df.to_excel('result1.xlsx', sheet_name='Sheet1', index=False)
 print("\nData Berhasil disimpan di Excel")
