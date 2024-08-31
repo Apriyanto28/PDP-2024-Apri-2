@@ -118,7 +118,7 @@ noise_after2 = []
 persen_noise_after2 = []
 
 #Nilai awal dan akhir proses
-awal = 110
+awal = 0
 akhir = len(arr_citra_awal)
 
 # Memproses citra
@@ -225,5 +225,5 @@ df["Noise Denoising"] = noise_after2
 df["Persen Noise Denoising"] = persen_noise_after2
 
 # Menyimpan data ke Excel
-df.to_excel('result1.xlsx', sheet_name='Sheet1', index=False)
+df.to_excel('result.xlsx', sheet_name='Sheet1', index=False)
 print("\nData Berhasil disimpan di Excel")
