@@ -355,8 +355,8 @@ for i in range(mulai, akhir):
     end_time = time.time()
     length_process = end_time - time_start
 
-    #print(f"Sum of noise = {count} of {sum_of_pixel} = {count / float(sum_of_pixel) * 100}%")
-    #print(f"Waktu untuk Proses = {name_of_time(length_process)}\n")
+    print(f"Sum of noise = {count} of {sum_of_pixel} = {count / float(sum_of_pixel[i]) * 100}%")
+    print(f"Waktu untuk Proses = {name_of_time(length_process)}\n")
 
     total_of_noise += [count]
     
@@ -364,10 +364,10 @@ for i in range(mulai, akhir):
     process_of_time += [name_of_time(length_process)]
     print(f" = {process_of_time[j]}")
 
-    #tmp_count = get_sum_noise(hsl_img, ww, hh, cc)
+    tmp_count = get_sum_noise(hsl_img, ww, hh, cc)
 
-    #total_of_noise_after += [tmp_count]
-    #percent_of_noise_after += [f"{round(tmp_count / float(sum_of_pixel[j]) * 100, 3)}%"]
+    total_of_noise_after += [tmp_count]
+    percent_of_noise_after += [f"{round(tmp_count / float(sum_of_pixel[j]) * 100, 3)}%"]
     cv2.imwrite(ress, hsl_img)
 
     # insert data into data frame
