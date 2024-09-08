@@ -256,11 +256,12 @@ df = pd.DataFrame(data)
 
 ### Ubah bagian ini disesuaikan dengan lokasi folder gambar berada
 #Contoh: img_loc = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\DatasetProcess\\Deblurring\\Apri"
-img_loc = "D:\\HasilDebluring\\Process\\Apri"
+#img_loc = "D:\\HasilDebluring\\Process\\Apri"
+img_loc = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\DatasetBaru1\\test\\images"
 
 ### Ubah bagian ini disesuaikan dengan lokasi folder tempat gambar disimpan
 #Contoh: save_fol_loc
-save_fol_loc = "D:\\HasilDebluring\\Process\\Apri-Hasil"
+save_fol_loc = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\DatasetBaru1\\test-hasil"
 
 # Get all image in folder
 img_file = get_image_files(img_loc)
