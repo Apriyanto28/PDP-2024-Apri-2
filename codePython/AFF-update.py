@@ -370,19 +370,19 @@ for i in range(mulai, akhir):
     #percent_of_noise_after += [f"{round(tmp_count / float(sum_of_pixel[j]) * 100, 3)}%"]
     cv2.imwrite(ress, hsl_img)
 
+    # insert data into data frame
+    df['image_name'] = name_of_image # get all image name
+    df['total_pixel_image'] = sum_of_pixel # get all total of pixel
+    df['total_noise'] = total_of_noise # get all total noise
+    df['percent_noise'] = percent_of_noise # convert all total of noise into percent with 3 decimal place
+    df['process_time'] = process_of_time # get all the time of process image
+
+    df['total_noise_after'] = total_of_noise_after # get all the time of process image
+    df['percent_noise_after'] = percent_of_noise_after # get all the time of process image
+
+    # save in excel file
+    df.to_excel('result.xlsx', sheet_name='Sheet1', index=False)
+
+    print("sudah berhasil disimpan ke dalam excel")
+
     j = j + 1
-
-# insert data into data frame
-df['image_name'] = name_of_image # get all image name
-df['total_pixel_image'] = sum_of_pixel # get all total of pixel
-df['total_noise'] = total_of_noise # get all total noise
-df['percent_noise'] = percent_of_noise # convert all total of noise into percent with 3 decimal place
-df['process_time'] = process_of_time # get all the time of process image
-
-df['total_noise_after'] = total_of_noise_after # get all the time of process image
-df['percent_noise_after'] = percent_of_noise_after # get all the time of process image
-
-# save in excel file
-df.to_excel('result.xlsx', sheet_name='Sheet1', index=False)
-
-print("sudah berhasil disimpan ke dalam excel")
