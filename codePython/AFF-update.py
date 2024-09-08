@@ -262,13 +262,12 @@ img_loc = "D:\\HasilDebluring\\Process\\Apri"
 #Contoh: save_fol_loc
 save_fol_loc = "D:\\HasilDebluring\\Process\\Apri-Hasil"
 
-
-### Ini disesuaikan kembali mau mulai dari gambar ke berapa sampai ke berapa
-mulai = 260
-akhir = 345
-
 # Get all image in folder
 img_file = get_image_files(img_loc)
+
+### Ini disesuaikan kembali mau mulai dari gambar ke berapa sampai ke berapa
+mulai = 0
+akhir = len(img_file)
 
 # declare variabel in array to save in dataframe
 name_of_image = []
@@ -381,7 +380,7 @@ for i in range(mulai, akhir):
     df['percent_noise_after'] = percent_of_noise_after # get all the time of process image
 
     # save in excel file
-    df.to_excel('result.xlsx', sheet_name='Sheet1', index=False)
+    df.to_excel('result-1.xlsx', sheet_name='Sheet1', index=False)
 
     print("sudah berhasil disimpan ke dalam excel")
 
