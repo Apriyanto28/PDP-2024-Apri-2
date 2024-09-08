@@ -257,18 +257,20 @@ df = pd.DataFrame(data)
 ### Ubah bagian ini disesuaikan dengan lokasi folder gambar berada
 #Contoh: img_loc = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\DatasetProcess\\Deblurring\\Apri"
 #img_loc = "D:\\HasilDebluring\\Process\\Apri"
-img_loc = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\DatasetBaru1\\test\\images"
+#img_loc = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\DatasetBaru1\\test\\images"
+img_loc = "/home/apriyanto/Documents/Baru-Lagi/citra_uji"
 
 ### Ubah bagian ini disesuaikan dengan lokasi folder tempat gambar disimpan
 #Contoh: save_fol_loc
-save_fol_loc = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\DatasetBaru1\\test-hasil"
+#save_fol_loc = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\DatasetBaru1\\test-hasil"
+save_fol_loc = "/home/apriyanto/Documents/Baru-Lagi/citra_hasil"
 
 # Get all image in folder
 img_file = get_image_files(img_loc)
 
 ### Ini disesuaikan kembali mau mulai dari gambar ke berapa sampai ke berapa
 mulai = 0
-akhir = len(img_file)
+akhir = 100
 
 # declare variabel in array to save in dataframe
 name_of_image = []
@@ -287,11 +289,17 @@ for i in range(mulai, akhir):
 
     # name for file to save and location
     name_of_image += [os.path.basename(img_file[i])]
-    ress = save_fol_loc + "\\" + name_of_image[j]
+
+    #Ubuntu
+    ress = save_fol_loc + "/" + name_of_image[j]
+
+    #Windows
+    #ress = save_fol_loc + "\\" + name_of_image[j]
+
     img = cv2.imread(img_file[i])
     
     # get the detail of image and print
-    print(f"Proses Citra ke-{i} = {name_of_image[j]}", end = "")
+    print(f"Proses Citra ke-{i} = {name_of_image[j]}")
     #print(f"Bentuk citra: {img.shape[0]} x {img.shape[1]} x {img.shape[2]} => ", end = "")
     
     ## get the image detail [ height, width, channel ]
@@ -325,7 +333,7 @@ for i in range(mulai, akhir):
                 #mask = get_mask(img, x, y, c, hh, ww)
                 mask = get_mask2(img, x, y, c)
 
-                # Check noise with threshold 3.0
+                # Check noise with threshold 20
                 threshold = 20
                 if(not(cek_noise3(mask, threshold))):
                     hsl[c] = mask[1][1]
@@ -358,18 +366,19 @@ for i in range(mulai, akhir):
     print(f"Sum of noise = {count} of {sum_of_pixel} = {count / float(sum_of_pixel[i]) * 100}%")
     print(f"Waktu untuk Proses = {name_of_time(length_process)}\n")
 
-    total_of_noise += [count]
+    #total_of_noise += [count]
     
-    percent_of_noise += [f"{round(count / float(sum_of_pixel[j]) * 100, 3)}%"]
-    process_of_time += [name_of_time(length_process)]
-    print(f" = {process_of_time[j]}")
+    #percent_of_noise += [f"{round(count / float(sum_of_pixel[j]) * 100, 3)}%"]
+    #process_of_time += [name_of_time(length_process)]
+    #print(f" = {process_of_time[j]}")
 
-    tmp_count = get_sum_noise(hsl_img, ww, hh, cc)
+    #tmp_count = get_sum_noise(hsl_img, ww, hh, cc)
 
-    total_of_noise_after += [tmp_count]
-    percent_of_noise_after += [f"{round(tmp_count / float(sum_of_pixel[j]) * 100, 3)}%"]
+    #total_of_noise_after += [tmp_count]
+    #percent_of_noise_after += [f"{round(tmp_count / float(sum_of_pixel[j]) * 100, 3)}%"]
     cv2.imwrite(ress, hsl_img)
 
+    '''
     # insert data into data frame
     df['image_name'] = name_of_image # get all image name
     df['total_pixel_image'] = sum_of_pixel # get all total of pixel
@@ -384,5 +393,5 @@ for i in range(mulai, akhir):
     df.to_excel('result-1.xlsx', sheet_name='Sheet1', index=False)
 
     print("sudah berhasil disimpan ke dalam excel")
-
+    '''
     j = j + 1
