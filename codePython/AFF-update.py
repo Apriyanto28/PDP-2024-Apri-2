@@ -269,8 +269,8 @@ save_fol_loc = "/home/apriyanto/Documents/Baru-Lagi/citra_hasil"
 img_file = get_image_files(img_loc)
 
 ### Ini disesuaikan kembali mau mulai dari gambar ke berapa sampai ke berapa
-mulai = 0
-akhir = 100
+mulai = 114
+akhir = len(img_file)
 
 # declare variabel in array to save in dataframe
 name_of_image = []
@@ -308,7 +308,8 @@ for i in range(mulai, akhir):
     cc = img.shape[2]
 
     # get the total of pixel image
-    sum_of_pixel += [ww * hh * cc]
+    sum_pixel = ww * hh * cc
+    sum_of_pixel += [sum_pixel]
     # print(f"Sum of pixel = {sum_of_pixel}")
     
     ## Declare Variabel
@@ -363,7 +364,7 @@ for i in range(mulai, akhir):
     end_time = time.time()
     length_process = end_time - time_start
 
-    print(f"Sum of noise = {count} of {sum_of_pixel} = {count / float(sum_of_pixel[i]) * 100}%")
+    print(f"Sum of noise = {count} of {sum_pixel} = {count / float(sum_pixel) * 100}%")
     print(f"Waktu untuk Proses = {name_of_time(length_process)}\n")
 
     #total_of_noise += [count]
