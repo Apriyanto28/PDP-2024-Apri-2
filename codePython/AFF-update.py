@@ -269,7 +269,7 @@ save_fol_loc = "/home/apriyanto/Documents/Baru-Lagi/citra_hasil"
 img_file = get_image_files(img_loc)
 
 ### Ini disesuaikan kembali mau mulai dari gambar ke berapa sampai ke berapa
-mulai = 114
+mulai = 0
 akhir = len(img_file)
 
 # declare variabel in array to save in dataframe
