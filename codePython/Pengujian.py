@@ -80,13 +80,13 @@ def is_image_blurry(image, threshold):
         return False
 
 # Lokasi Citra
-citra_awal = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\Jurnal-Image-Enhancement\\dataset\\awal-ubuntu"
-citra_hasil_deblurring = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\Jurnal-Image-Enhancement\\dataset\\Hasil-Deblurring"
-citra_hasil_denoising = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\Jurnal-Image-Enhancement\\dataset\\Hasil-Denoising"
+citra_awal = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\Hasil Pengujian\\citra_uji"
+#citra_hasil_deblurring = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\Jurnal-Image-Enhancement\\dataset\\Hasil-Deblurring"
+citra_hasil_denoising = "D:\\OneDrive - mikroskil.ac.id\\(1) PDP\\2324Genap\\Hasil Pengujian\\citra_hasil"
 
 # Mendapatkan nama file citra
 arr_citra_awal = get_image_files(citra_awal)
-arr_citra_hasil_deblurring = get_image_files(citra_hasil_deblurring)
+#arr_citra_hasil_deblurring = get_image_files(citra_hasil_deblurring)
 arr_citra_hasil_denoising = get_image_files(citra_hasil_denoising)
 
 # Mendapatkan jumlah citra
@@ -103,17 +103,17 @@ name_of_image = []
 sum_of_pixel = []
 
 ## Before
-check_blur_before = []
+#check_blur_before = []
 noise_before = []
 persen_noise_before = []
 
-## After (Deblurring)
-check_blur_after1 = []
-noise_after1 = []
-persen_noise_after1 = []
+### After (Deblurring)
+#check_blur_after1 = []
+#noise_after1 = []
+#persen_noise_after1 = []
 
 ## After (Denosing)
-check_blur_after2 = []
+#check_blur_after2 = []
 noise_after2 = []
 persen_noise_after2 = []
 
@@ -147,8 +147,8 @@ for i in range(awal, akhir):
     sum_of_pixel += [ttl_piksel]
 
     # Mengecek apakah citra termasuk citra kabur atau tidak
-    blur = "blur image" if is_image_blurry(img, 100) else "non-blur image"
-    check_blur_before += [blur]
+    #blur = "blur image" if is_image_blurry(img, 100) else "non-blur image"
+    #check_blur_before += [blur]
 
     # Mendapaktan jumlah noise
     sum_noise = get_sum_of_noise(img, w, h)
@@ -162,19 +162,19 @@ for i in range(awal, akhir):
     ## Citra setelah Deblurring
 
     # Membaca citra
-    img = cv2.imread(arr_citra_hasil_deblurring[i])
+    #img = cv2.imread(arr_citra_hasil_deblurring[i])
 
     # Mengecek apakah citra termasuk citra kabur atau tidak
-    blur = "blur image" if is_image_blurry(img, 100) else "non-blur image"
-    check_blur_after1 += [blur]
+    #blur = "blur image" if is_image_blurry(img, 100) else "non-blur image"
+    #check_blur_after1 += [blur]
 
     # Mendapaktan jumlah noise
-    sum_noise = get_sum_of_noise(img, w, h)
-    noise_after1 += [sum_noise]
+    #sum_noise = get_sum_of_noise(img, w, h)
+    #noise_after1 += [sum_noise]
 
     # Mengkonversi jumlah noise menjadi persen
-    persen = sum_noise / ttl_piksel * 100
-    persen_noise_after1 += [f"{persen}%"]
+    #persen = sum_noise / ttl_piksel * 100
+    #persen_noise_after1 += [f"{persen}%"]
 
     
     ## Citra setelah Denoising
@@ -183,8 +183,8 @@ for i in range(awal, akhir):
     img = cv2.imread(arr_citra_hasil_denoising[i])
 
     # Mengecek apakah citra termasuk citra kabur atau tidak
-    blur = "blur image" if is_image_blurry(img, 100) else "non-blur image"
-    check_blur_after2 += [blur]
+    #blur = "blur image" if is_image_blurry(img, 100) else "non-blur image"
+    #check_blur_after2 += [blur]
 
     # Mendapaktan jumlah noise
     sum_noise = get_sum_of_noise(img, w, h)
@@ -210,20 +210,20 @@ df["Nama Citra"] = name_of_image
 df["Jumlah Piksel Citra"] = sum_of_pixel
 
 ## Citra Awal
-df["Blur Awal"] = check_blur_before
+#df["Blur Awal"] = check_blur_before
 df["Noise Awal"] = noise_before
 df["Persen Noise Awal"] = persen_noise_before
 
 ## Setelah Deblurring
-df["Blur Deblurring"] = check_blur_after1
-df["Noise Deblurring"] = noise_after1
-df["Persen Noise Deblurring"] = persen_noise_after1
+#df["Blur Deblurring"] = check_blur_after1
+#df["Noise Deblurring"] = noise_after1
+#df["Persen Noise Deblurring"] = persen_noise_after1
 
 ## Setelah Denoising
-df["Blur Denoising"] = check_blur_after2
+#df["Blur Denoising"] = check_blur_after2
 df["Noise Denoising"] = noise_after2
 df["Persen Noise Denoising"] = persen_noise_after2
 
 # Menyimpan data ke Excel
-df.to_excel('result.xlsx', sheet_name='Sheet1', index=False)
+df.to_excel('result1.xlsx', sheet_name='Sheet1', index=False)
 print("\nData Berhasil disimpan di Excel")
